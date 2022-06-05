@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Listagem de Livros</title>
+  </head>
+  <body>
+    <h1>esta é a pagina de listagem</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="border-style: solid; border-width: 1px">imagem</th>
+          <th style="border-style: solid; border-width: 1px">Nome</th>
+          <th style="border-style: solid; border-width: 1px">Categoria</th>
+          <th style="border-style: solid; border-width: 1px">Autor</th>
+          <th style="border-style: solid; border-width: 1px">
+            data de publicação
+          </th>
+          <th style="border-style: solid; border-width: 1px">
+            Quantidade de paginas
+          </th>
+          <th style="border-style: solid; border-width: 1px">ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in lista %}
+        <tr style="border-style: solid">
+          <td>
+            <img src="{{ item.book_cover }}" width="100px" alt="book_cover" />
+          </td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.author }}</td>
+          <td>{{ item.publication_date }}</td>
+          <td>{{ item.pages }}</td>
+          <td>
+            <button>editar</button>
+            <button>apagar</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

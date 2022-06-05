@@ -1,0 +1,45 @@
+// atualizar pip 
+-m pip install --upgrade pip
+
+//criar um ambiente virtual venv
+python -m venv venv
+
+//ativar venv
+.\venv\Scripts\activate
+
+//isntalar o django
+pip install django
+
+//criando projeto
+django-admin startproject teste1
+
+//banco de dados postgre
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+pip install psycopg2  
+
+//criar as migrations apartir dos modelos
+python .\manage.py makemigrations
+
+//migrando as informações
+python .\manage.py migrate
+
+//executando o servidor
+python .\manage.py runserver
+
+//criando usuário para o moduloadministrador
+python .\manage.pycreatesuperuser
+
+
+
+//ImageField
+pip install pillow
