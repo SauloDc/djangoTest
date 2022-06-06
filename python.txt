@@ -1,5 +1,5 @@
 // atualizar pip 
--m pip install --upgrade pip
+python -m pip install --upgrade pip
 
 //criar um ambiente virtual venv
 python -m venv venv
@@ -9,9 +9,6 @@ python -m venv venv
 
 //isntalar o django
 pip install django
-
-//criando projeto
-django-admin startproject teste1
 
 //banco de dados postgre
 DATABASES = {
@@ -27,19 +24,21 @@ DATABASES = {
 
 pip install psycopg2  
 
+//ImageField
+pip install pillow
+
+//criando projeto
+django-admin startproject teste1
+
 //criar as migrations apartir dos modelos
 python .\manage.py makemigrations
 
 //migrando as informações
 python .\manage.py migrate
 
+//criando usuário para o moduloadministrador
+python .\manage.py createsuperuser
+
 //executando o servidor
 python .\manage.py runserver
 
-//criando usuário para o moduloadministrador
-python .\manage.pycreatesuperuser
-
-
-
-//ImageField
-pip install pillow
