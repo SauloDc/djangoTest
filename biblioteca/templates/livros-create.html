@@ -1,16 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Criar Livro</title>
-  </head>
-  <body>
-    <h1>Criar Livro</h1>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %} {{ form }}
-      <button type="submit">Adicionar</button>
-    </form>
-  </body>
-</html>
+{% extends './base.html' %}
+
+{% block title %}
+Criar Livro
+{% endblock title %}
+
+{% block content %}
+<h1>Criar Livro</h1>
+<form method="post" enctype="multipart/form-data" class="">
+	{% csrf_token %}
+	<div class='col-md-12'>
+		<label class="form-label" for="{{ form.name.id_for_label }}">Nome:</label>
+		<input class="form-control" type="text" id="{{ form.name.id_for_label }}" name="{{form.name.html_name}}">
+		{{ form.name.errors }}
+	</div>
+
+	<div class='col-md-12'>
+		<label class="form-label" for="{{ form.category.id_for_label }}">Categoria:</label>
+		<input class="form-control" type="text" id="{{ form.category.id_for_label }}"
+			name="{{form.category.html_name}}">
+		{{ form.category.errors }}
+	</div>
+
+	<div class='col-md-12'>
+		<label class="form-label" for="{{ form.author.id_for_label }}">Autor:</label>
+		<input class="form-control" type="text" id="{{ form.author.id_for_label }}" name="{{form.author.html_name}}">
+		{{ form.author.errors }}
+	</div>
+
+	<div class="col-md-6">
+		<label class="form-label" for="{{ form.book_cover.id_for_label }}">Capa:</label>
+		<input class="form-control" type="file" accept="image/*" id="{{ form.book_cover.id_for_label }}"
+			name="{{form.book_cover.html_name}}">
+		{{ form.book_cover.errors }}
+	</div>
+
+	<div class="col-md-3">
+		<label class="form-label" for="{{ form.publication_date.id_for_label }}">Data de Publicação:</label>
+		<input class="form-control" type="date" id="{{ form.publication_date.id_for_label }}"
+			name="{{form.publication_date.html_name}}">
+		{{ form.publication_date.errors }}
+	</div>
+
+	<div class="col-md-3 ">
+		<label class="form-label" for="{{ form.pages.id_for_label }}">Nº de Paginas:</label>
+		<input class="form-control" type="text" id="{{ form.pages.id_for_label }}" name="{{form.pages.html_name}}">
+		{{ form.pages.errors }}
+	</div>
+
+	<button class="btn btn-primary" type="submit">Adicionar</button>
+
+</form>
+{% endblock content %}
